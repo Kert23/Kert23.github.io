@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
 </head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>This is my website</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat autem earum vero animi enim inventore iusto impedit. Nisi vero quisquam delectus recusandae, cumque modi laboriosam ipsa qui molestiae suscipit.</p>
-            </div>
-        </div>
-        <div class="row">
-            <p><a href="test/about.html">About Me</a></p>
-        </div>
+<body style="font-family:Arial, sans-serif; background-color: #fddede; text-align: center; margin: 0; padding: 0;">
+    
+    <div style = "max-width: 400px; margin: 100px auto; background: #fff5f5; border: 1px solid #e57373; border-radius: 8px; padding: 20px;">
+        <img src = "logo.png" alt="Logo" style="width: 200px;">
     </div>
+
+    <h1 style="color: #b71c1c; margin-bottom: 20px;"> Sign in </h1>
+
+    <form action="#" method="POST" style="text-align: center;">
+        <div style="margin-bottom: 15px;">
+            <label for="email" style="display: block; margin-bottom: 5px; color:#b71c1c;"> Email Address</label>
+            <input type="text" id="email" name="email" required style="width: 30%; padding: 10px; border: 1px solid #b71c1c; border-radius: 4px;">
+        </div> 
+        <div style="margin-bottom: 15px;">
+            <label for="password" style="display:block; margin-bottom: 10px; color: #b71c1c;">Password</label>
+            <input type="password" id="password" name="password" required style="width: 30%; padding: 10px; border: 1px solid #b71c1c; border-radius: 4px;">
+        </div>
+        <button type="submit" style="width: 30%; padding: 10px; background-color: #e53935; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Log In</button>
+  </form>
+<div style="margin-top: 15px;"></div>
+<button style="text-align: center; margin-bottom: 10px; color: #e53935; text-decoration: none;">Forgot Account?</button>
+<button style="text-align: center; margin-bottom: 10px; color: #e53935; text-decoration: none;">Create New Account</button>
+</div>
+</div>
 </body>
 </html>
