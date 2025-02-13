@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .left-panel {
+    width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .day-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .day-btn:nth-child(1) { background-color: red; }
+  .day-btn:nth-child(2) { background-color: orange; }
+  .day-btn:nth-child(3) { background-color: yellow; color: black; }
+  .day-btn:nth-child(4) { background-color: green; }
+  .day-btn:nth-child(5) { background-color: blue;}
+  .day-btn:nth-child(6) { background-color: indigo; }
+  .day-btn:nth-child(7) { background-color: violet }
+  
+  .center-panel {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box {
+    width: 500px;
+    height: 500px;
+    border: 10px solid black;
+    opacity: 0;
+    transition: background-color 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .box.visible {
+    opacity: 1;
+  }
+  
+  @keyframes rainbow {
+    0% { background-color: red; }
+    17% { background-color: orange; }
+    33% { background-color: yellow; }
+    50% { background-color: green; }
+    67% { background-color: blue; }
+    83% { background-color: indigo; }
+    100% { background-color: violet; }
+  }
+  
