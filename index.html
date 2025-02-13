@@ -1,56 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Khurt Ghenesys Vasquez</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainbow Animation</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="changeColor">Change Color</button>
-    <div class="resume">
-        <div class="header">
-            <div class="text">
-                <h1>Vasquez, Khurt Ghenesys M.</h1>
-                <p><strong>Address:</strong> Navotas City, Philippines</p>
-                <p><strong>Contact No.:</strong> +639062037823</p>
-                <p><strong>Email:</strong> Khurtvasquez@gmail.com</p>
-            </div>
-            <div class="image">
-                <img src="resumepic.jpg" alt="Profile Picture">
-            </div>
-        </div>
-        <hr>
-        <h2>Objective:</h2>
-        <p>To secure a challenging position where I can apply my skills in web development and design while continuously learning and growing in a professional environment. Aspiring web developer with a passion for creating responsive and user-friendly websites. Seeking an opportunity to apply my knowledge in HTML, CSS, and JavaScript to contribute to innovative projects.</p>
-        <h2>Academic Background:</h2>
-<table>
-    <tr>
-        <td><strong><em>College</em></strong> :</td> 
-        <td>FEU Institute Of Technology <br> (2022-2025)</td>
-    </tr>
-    <tr>
-        <td><strong><em>Senior High School</em></strong> :</td>
-        <td>Arellano University Elisa Esguerra Campus <br> (2020-2022)</td>
-    </tr>
-    <tr>
-        <td><strong><em>Junior High School</em></strong> :</td>
-        <td>Tanza National High School <br> (2016-2020)</td>
-    </tr>
-    <tr>
-        <td><strong><em>Elementary</em></strong> :</td>
-        <td>Malabon Elementary School <br> (2010-2016)</td>
-    </tr>
-</table>
-<h2>Skills:</h2>
-        <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Responsive Web Design</li>
-            <li>Web and Mobile Application</li>
-            <li>Problem-Solving</li>
-            <li>Creativity</li>
-        </ul>
+  <div class="container">
+    <div class="left-panel">
+      <button class="day-btn" data-day="Monday">Monday</button>
+      <button class="day-btn" data-day="Tuesday">Tuesday</button>
+      <button class="day-btn" data-day="Wednesday">Wednesday</button>
+      <button class="day-btn" data-day="Thursday">Thursday</button>
+      <button class="day-btn" data-day="Friday">Friday</button>
+      <button class="day-btn" data-day="Saturday">Saturday</button>
+      <button class="day-btn" data-day="Sunday">Sunday</button>
     </div>
-    <script src="script.js"></script>
+    <div class="center-panel">
+      <div id="animated-box" class="box hidden"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
