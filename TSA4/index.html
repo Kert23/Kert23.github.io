@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filipino Restaurant Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Restaurant Guide</h1>
+        <p>Produced by: Khurt Ghenesys Vasquez</p>
+        <button id="main-menu-btn" onclick="showMenu()">Main Menu</button>
+    </div>
+
+    <div id="menu" class="menu">
+        <div class="card" onclick="showDish('adobo')">
+            <img src="adobo.jpg" alt="Adobo">
+            <div class="card-title">Adobo</div>
+        </div>
+        <div class="card" onclick="showDish('sinigang')">
+            <img src="sinigang.jpg" alt="Sinigang">
+            <div class="card-title">Sinigang</div>
+        </div>
+        <div class="card" onclick="showDish('lechon')">
+            <img src="lechon.jpg" alt="Lechon">
+            <div class="card-title">Lechon</div>
+        </div>
+        <div class="card" onclick="showDish('sisig')">
+            <img src="sisig.jpg" alt="Sisig">
+            <div class="card-title">Sisig</div>
+        </div>
+        <div class="card" onclick="showDish('kareKare')">
+            <img src="karekare.jpg" alt="Kare-Kare">
+            <div class="card-title">Kare-Kare</div>
+        </div>
+    </div>
+    <div id="dish" class="dish" style="display: none;">
+        <h2 id="dish-name"></h2>
+        <p id="dish-info"></p>
+        <p id="dish-description"></p>
+        <button onclick="showMenu()">Back to Menu</button>
+    </div>
+</body>
+</html>
