@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View Profile - Forum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            'dark-bg': '#18191A',
+            'dark-card': '#242526',
+            'dark-border': '#3A3B3C',
+            'dark-text-primary': '#E4E6EB',
+            'dark-text-secondary': '#B0B3B8',
+            brand: '#4A90E2',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 dark:bg-dark-bg text-black dark:text-dark-text-primary font-sans">
+
+  <!-- Header -->
+  <header class="bg-white dark:bg-dark-card border-b border-gray-200 dark:border-dark-border sticky top-0 z-40 px-4 lg:px-6 h-16 flex items-center">
+    <div class="flex justify-between items-center w-full">
+      <div class="flex items-center space-x-3">
+        <a href="homepage.html" class="flex items-center space-x-2">
+          <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 9l3 3-3 3m5 0h3M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+          </svg>
+          <span class="text-xl font-bold hidden sm:inline">Forum</span>
+        </a>
+      </div>
+      <div class="flex items-center space-x-3">
+        <a href="settings.html" class="text-sm font-semibold hover:text-brand transition">Settings</a>
+        <a href="index.html" class="text-sm font-semibold text-red-500 hover:underline">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6">
+    <!-- Back Button -->
+    <div class="mb-6">
+      <a href="homepage.html" class="inline-flex items-center space-x-2 text-sm font-semibold text-brand hover:underline">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span>Back to Homepage</span>
+      </a>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="bg-white dark:bg-dark-card rounded-lg shadow p-6 space-y-8">
+      <!-- Profile Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6 space-y-4 sm:space-y-0">
+        <img src="https://placehold.co/96x96/7F56D9/FFFFFF?text=JD" alt="User Avatar" class="h-24 w-24 rounded-full object-cover border-4 border-brand"/>
+        <div>
+          <h1 class="text-2xl font-bold">Juan Dela Cruz</h1>
+          <p class="text-sm text-gray-600 dark:text-dark-text-secondary">juandelacruz@example.com</p>
+          <p class="mt-2 text-sm dark:text-dark-text-secondary max-w-lg">Lover of code, coffee, and clean UIs. Frontend engineer, passionate about modern design.</p>
+        </div>
+      </div>
+
+      <!-- Joined Subforums -->
+      <div>
+        <h2 class="text-lg font-bold mb-3">Joined Subforums</h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-dark-bg text-sm">#programming-humor</span>
+          <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-dark-bg text-sm">#apple-music</span>
+          <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-dark-bg text-sm">#technology</span>
+          <span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-dark-bg text-sm">#memes</span>
+        </div>
+      </div>
+
+      <!-- Recent Posts -->
+      <div>
+        <h2 class="text-lg font-bold mb-3">Recent Posts</h2>
+        <div class="space-y-4">
+          <div class="bg-gray-50 dark:bg-dark-bg p-4 rounded-lg shadow-sm">
+            <h3 class="font-semibold text-brand mb-1">Why do Java developers wear glasses?</h3>
+            <p class="text-sm dark:text-dark-text-secondary">Because they don't C#! 😂</p>
+          </div>
+          <div class="bg-gray-50 dark:bg-dark-bg p-4 rounded-lg shadow-sm">
+            <h3 class="font-semibold text-brand mb-1">Apple Music Lossless Review</h3>
+            <p class="text-sm dark:text-dark-text-secondary">Lossless audio sounds amazing, but storage is the tradeoff.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

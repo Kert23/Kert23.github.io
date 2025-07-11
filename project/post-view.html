@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why do Java developers wear glasses? - Forum</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        // Custom Tailwind configuration to extend colors and set the default font
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-bg': '#18191A',
+                        'dark-card': '#242526',
+                        'dark-border': '#3A3B3C',
+                        'dark-text-primary': '#E4E6EB',
+                        'dark-text-secondary': '#B0B3B8',
+                        'brand': '#4A90E2',
+                        'upvote': '#22c55e',
+                        'downvote': '#ef4444',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #4A4A4A; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-dark-bg text-black dark:text-dark-text-primary font-sans transition-colors duration-300">
+
+    <!-- Main Container -->
+    <div id="app" class="min-h-screen">
+        <!-- Header (Same as homepage) -->
+        <header class="bg-white dark:bg-dark-card border-b border-gray-200 dark:border-dark-border sticky top-0 z-40 px-4 lg:px-6 h-16 flex items-center">
+             <div class="flex items-center justify-between w-full">
+                <div class="flex items-center space-x-6">
+                  <a href="index.html" class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                      <span class="font-bold text-xl hidden sm:inline">Forum</span>
+                  </a>
+                </div>
+                <div class="flex-1 px-4 lg:px-12">
+                    <div class="relative"><input type="text" placeholder="Search..." class="w-full bg-gray-100 dark:bg-dark-bg border border-transparent dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent rounded-full py-2 pl-10 pr-4 text-sm"><div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><svg class="h-5 w-5 text-gray-400 dark:text-dark-text-secondary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg></div></div>
+                </div>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <button id="messages-button" class="p-2 rounded-full bg-gray-100 dark:bg-dark-bg hover:bg-gray-200 dark:hover:bg-dark-border transition-colors relative"><svg class="h-5 w-5 text-gray-600 dark:text-dark-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg><span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-dark-card"></span></button>
+                    <button id="notifications-button" class="p-2 rounded-full bg-gray-100 dark:bg-dark-bg hover:bg-gray-200 dark:hover:bg-dark-border transition-colors"><svg class="h-5 w-5 text-gray-600 dark:text-dark-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg></button>
+                    <div class="relative"><button id="profile-button" class="flex items-center space-x-2 focus:outline-none"><img class="h-9 w-9 rounded-full object-cover" src="https://placehold.co/40x40/7F56D9/FFFFFF?text=JD" alt="User avatar"><span class="font-semibold text-sm hidden lg:inline">Juan Dela Cruz&nbsp;</span><svg class="h-4 w-4 text-gray-500 dark:text-dark-text-secondary hidden lg:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="container mx-auto p-4 lg:p-6">
+            <div class="grid grid-cols-12 gap-6">
+
+                <!-- Left Sidebar (Restored) -->
+                <aside class="col-span-12 lg:col-span-3 space-y-6">
+                    <div class="bg-white dark:bg-dark-card p-4 rounded-lg shadow">
+                         <ul class="space-y-2">
+                            <li><a href="homepage.html" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-dark-text-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" /></svg>
+                                <span>Home Feed</span>
+                            </a></li>
+                             <li><a href="#" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-dark-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                <span>Newest and Recent</span>
+                            </a></li>
+                            <li><a href="#" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors">
+                                <svg class="h-5 w-5 text-gray-500 dark:text-dark-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z"></path></svg>
+                                <span>Trending</span>
+                            </a></li>
+                        </ul>
+                    </div>
+<div class="bg-white dark:bg-dark-card p-4 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-4">Popular Subforums</h3>
+                       <div class="space-y-2"> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//gaming</a> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//movies</a> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//technology</a> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//memes</a> </div>
+                  </div>
+<div class="bg-white dark:bg-dark-card p-4 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-4">Joined Subforums</h3>
+                       <div class="space-y-2"> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//spotify</a> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//apple-music</a> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//google</a> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//youtube</a> <a href="subforum-view.html" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//programming-humor</a> <a href="#" class="block p-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors font-medium text-sm">//adobe</a> </div>
+                     </div>
+                </aside>
+
+                <!-- Main Post View -->
+                <div class="col-span-12 lg:col-span-6 space-y-6 relative">
+                    <div class="bg-white dark:bg-dark-card rounded-lg shadow">
+                        <div class="p-5">
+                            <div class="flex items-center text-sm text-gray-500 dark:text-dark-text-secondary mb-2">
+                                <img class="h-8 w-8 rounded-full object-cover mr-3" src="https://placehold.co/32x32/F97316/FFFFFF?text=D" alt="Author avatar">
+                                <div>
+                                    <a href="#" class="font-bold text-gray-800 dark:text-dark-text-primary hover:underline">dev_joker</a>
+                                    <span class="block text-xs">posted in <a href="#" class="font-bold text-brand hover:underline">//programming-humor</a> &middot; 2h ago</span>
+                                </div>
+                            </div>
+                            <h1 class="text-3xl font-bold leading-tight my-4">Why do Java developers wear glasses? Because they don't C#.</h1>
+                          <img src="https://placehold.co/600x400/2d3748/ffffff?text=Programming Humor" alt="Post image" class="w-full object-cover rounded-lg mb-4">
+                            <p class="text-gray-700 dark:text-dark-text-primary my-4">Just a classic joke for my fellow coders out there. Hope it brightens up your day of debugging!</p>
+                        </div>
+                        <div class="px-5 pb-4 flex justify-between items-center text-sm text-gray-500 dark:text-dark-text-secondary">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex items-center space-x-1">
+                                    <button class="p-2 rounded-full hover:bg-green-100 dark:hover:bg-green-500/20 group">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 dark:text-dark-text-secondary group-hover:text-upvote" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg>
+                                    </button>
+                                    <span class="font-bold text-lg">12k</span>
+                                    <button class="p-2 rounded-full hover:bg-red-100 dark:hover:bg-red-500/20 group">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 dark:text-dark-text-secondary group-hover:text-downvote" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3.5a.75.75 0 01.53 1.28l-4.47 4.47a.75.75 0 01-1.06-1.06L9.47 3.5a.75.75 0 01.53 0zM14.47 8.22a.75.75 0 010 1.06l-4.47 4.47a.75.75 0 11-1.06-1.06L13.41 8.22a.75.75 0 011.06 0z" /><path fill-rule="evenodd" d="M9.53.22a.75.75 0 011.06 0l6.5 6.5a.75.75 0 01-.02 1.08l-3.25 3.25a.75.75 0 01-1.08-.02L9.5 8.06l-3.22 3.22a.75.75 0 01-1.06 0L1.72 7.78a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.31.5V.22zM3.56 7.22L7 3.78v7.94l-3.44-3.44a.75.75 0 010-1.06zM15.38 7.22l-2.63 2.63L10.5 11.72v-4.5L13.28 10l2.1-2.1a.75.75 0 01.02-1.06l-.32-.32a.75.75 0 01-1.06.02z" clip-rule="evenodd" /></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <a href="#" class="px-2 py-1 bg-gray-100 dark:bg-dark-bg rounded-full text-xs">#funny</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comment Section -->
+                    <div class="bg-white dark:bg-dark-card rounded-lg shadow p-5 space-y-6">
+                        <h3 class="text-lg font-bold border-b border-gray-200 dark:border-dark-border pb-3">Comments (3)</h3>
+                        
+                        <!-- Comment 1 -->
+                        <div class="flex space-x-3">
+                            <img src="https://placehold.co/40x40/10B981/FFFFFF?text=A" class="w-10 h-10 rounded-full object-cover" alt="Commenter avatar">
+                            <div class="flex-1">
+                                <p class="font-semibold text-sm">audiophile_anna</p>
+                                <p class="text-gray-800 dark:text-dark-text-primary">Lmao, an oldie but a goodie.</p>
+                                <div class="text-xs text-gray-500 dark:text-dark-text-secondary mt-1 flex items-center space-x-3">
+                                    <button class="font-semibold hover:underline">Reply</button>
+                                    <span>&middot;</span>
+                                    <button class="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-border">👍 22</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comment 2 (with a reply) -->
+                        <div class="flex space-x-3">
+                            <img src="https://placehold.co/40x40/4F46E5/FFFFFF?text=G" class="w-10 h-10 rounded-full object-cover" alt="Commenter avatar">
+                            <div class="flex-1">
+                                <p class="font-semibold text-sm">design_guru</p>
+                                <p class="text-gray-800 dark:text-dark-text-primary">I don't get it.</p>
+                                <div class="text-xs text-gray-500 dark:text-dark-text-secondary mt-1 flex items-center space-x-3">
+                                    <button class="font-semibold hover:underline">Reply</button>
+                                    <span>&middot;</span>
+                                    <button class="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-border">👍 2</button>
+                                </div>
+                                
+                                <!-- Nested Reply -->
+                                <div class="flex space-x-3 mt-4">
+                                    <img src="https://placehold.co/40x40/F97316/FFFFFF?text=D" class="w-10 h-10 rounded-full object-cover" alt="Replier avatar">
+                                    <div class="flex-1">
+                                        <p class="font-semibold text-sm">dev_joker <span class="text-xs font-normal text-brand bg-blue-100 dark:bg-brand/20 px-1.5 py-0.5 rounded-full">OP</span></p>
+                                        <p class="text-gray-800 dark:text-dark-text-primary">It's a pun on the programming language C# (pronounced C-Sharp).</p>
+                                        <div class="text-xs text-gray-500 dark:text-dark-text-secondary mt-1 flex items-center space-x-3">
+                                            <button class="font-semibold hover:underline">Reply</button>
+                                            <span>&middot;</span>
+                                            <button class="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-border">👍 5</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Comment Bar -->
+                    <div class="sticky bottom-4 z-30 px-4">
+                        <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-dark-border p-3 flex items-center space-x-3">
+                            <img class="h-9 w-9 rounded-full object-cover" src="https://placehold.co/40x40/7F56D9/FFFFFF?text=JD" alt="User avatar">
+                            <div class="relative flex-1">
+                                <input type="text" placeholder="Add a comment..." class="w-full bg-gray-100 dark:bg-dark-bg border-none rounded-full py-2 pl-4 pr-24 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-2">
+                                     <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-border">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" /></svg>
+                                    </button>
+                                    <button class="ml-1 px-4 py-1 text-sm font-semibold bg-brand text-white rounded-full hover:bg-blue-600">Post</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+
+                <!-- Right Sidebar (Restored) -->
+                <aside class="col-span-12 lg:col-span-3 space-y-6">
+                    <div class="bg-white dark:bg-dark-card p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-lg mb-4">Online Friends</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-center space-x-3 group"><div class="relative"><img src="https://placehold.co/40x40/34D399/FFFFFF?text=M" class="w-10 h-10 rounded-full object-cover" alt="Friend avatar"><span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-white dark:ring-dark-card"></span></div><span class="font-semibold text-sm group-hover:text-brand transition-colors">Placeholder Name 1</span></a>
+                            <a href="#" class="flex items-center space-x-3 group"><div class="relative"><img src="https://placehold.co/40x40/F59E0B/FFFFFF?text=C" class="w-10 h-10 rounded-full object-cover" alt="Friend avatar"><span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-white dark:ring-dark-card"></span></div><span class="font-semibold text-sm group-hover:text-brand transition-colors">Placeholder Name 2</span></a>
+                            <a href="#" class="flex items-center space-x-3 group"><div class="relative"><img src="https://placehold.co/40x40/EF4444/FFFFFF?text=P" class="w-10 h-10 rounded-full object-cover" alt="Friend avatar"><span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-white dark:ring-dark-card"></span></div><span class="font-semibold text-sm group-hover:text-brand transition-colors">Placeholder Name 2</span></a>
+                        </div>
+                    </div>
+<div class="bg-white dark:bg-dark-card p-4 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-4">Meetups &rarr;</h3>
+                      <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                          <div class="bg-red-100 dark:bg-red-500/20 text-red-600 dark:text-red-400 p-2 rounded-lg flex flex-col items-center w-12"> <span class="text-xs font-bold">JUL</span> <span class="text-lg font-bold">28</span> </div>
+                          <div>
+                            <h4 class="font-semibold text-sm">Tech Meetup Manila</h4>
+                          </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                          <div class="bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 p-2 rounded-lg flex flex-col items-center w-12"> <span class="text-xs font-bold">AUG</span> <span class="text-lg font-bold">15</span> </div>
+                          <div>
+                            <h4 class="font-semibold text-sm">Designers & Coffee</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+<div class="bg-white dark:bg-dark-card p-4 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-4">Trending Podcasts &rarr;</h3>
+                      <div class="space-y-4"> <a href="#" class="flex items-center space-x-3 group"><img src="https://placehold.co/48x48/4F46E5/FFFFFF?text=P" class="w-12 h-12 rounded-lg object-cover" alt="Podcast cover">
+                        <div class="flex-1">
+                          <h4 class="font-semibold text-sm group-hover:text-brand transition-colors">The Coding Career Handbook</h4>
+                        </div>
+                        </a> <a href="#" class="flex items-center space-x-3 group"><img src="https://placehold.co/48x48/10B981/FFFFFF?text=M" class="w-12 h-12 rounded-lg object-cover" alt="Podcast cover">
+                          <div class="flex-1">
+                            <h4 class="font-semibold text-sm group-hover:text-brand transition-colors">Design Details</h4>
+                          </div>
+                        </a> </div>
+                    </div>
+                </aside>
+          </div>
+        </main>
+    </div>
+    
+    <!-- Popovers container -->
+    <div id="popover-container"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // This script now includes all popover logic for the post page.
+            
+            function renderPopovers() {
+                const popoverContainer = document.getElementById('popover-container');
+                if (!popoverContainer) return;
+                popoverContainer.innerHTML = `
+                    <!-- Profile Dropdown -->
+                    <div id="profile-dropdown" class="hidden absolute right-4 top-16 mt-2 w-60 bg-white dark:bg-dark-card rounded-lg shadow-xl border border-gray-200 dark:border-dark-border overflow-hidden z-50">
+                        <div class="p-4 border-b border-gray-200 dark:border-dark-border"><p class="font-bold">Juan Dela Cruz</p><p class="text-sm text-gray-500 dark:text-dark-text-secondary">juandelacruz@example.com</p></div>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-dark-text-primary hover:bg-gray-100 dark:hover:bg-dark-bg">View Profile</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-dark-text-primary hover:bg-gray-100 dark:hover:bg-dark-bg">Settings</a>
+                        <div class="border-t border-gray-200 dark:border-dark-border p-2"><div class="flex items-center justify-between px-2 py-1"><label for="dark-mode-toggle" class="text-sm">Dark Mode</label><button id="dark-mode-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand dark:focus:ring-offset-dark-card"><span class="sr-only">Enable dark mode</span><span class="inline-block w-4 h-4 transform bg-white rounded-full transition-transform"></span></button></div></div>
+                        <a href="#" class="block w-full text-left px-4 py-2 text-sm text-red-500 border-t border-gray-200 dark:border-dark-border hover:bg-gray-100 dark:hover:bg-dark-bg">Logout</a>
+                    </div>
+                    <!-- Notifications Popover -->
+                    <div id="notifications-popover" class="hidden absolute top-16 right-4 sm:right-40 mt-2 w-80 sm:w-96 bg-white dark:bg-dark-card rounded-lg shadow-xl border border-gray-200 dark:border-dark-border z-50">
+                        <div class="p-4 border-b border-gray-200 dark:border-dark-border"><h3 class="font-bold text-lg">Notifications</h3></div>
+                        <div class="p-8 text-center text-gray-500 dark:text-dark-text-secondary"><svg class="w-16 h-16 mx-auto text-gray-300 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><p class="mt-4 font-semibold">All caught up!</p><p class="text-sm">You don't have any new notifications.</p></div>
+                    </div>
+                    <!-- Messages Popover -->
+                    <div id="messages-popover" class="hidden absolute top-16 right-4 sm:right-24 mt-2 w-80 sm:w-96 bg-white dark:bg-dark-card rounded-lg shadow-xl border border-gray-200 dark:border-dark-border overflow-hidden flex flex-col z-50" style="height: 60vh; max-height: 450px;">
+                        <div id="messages-content-container" class="flex-1 flex flex-col overflow-hidden">
+                            <div id="message-list-view" class="flex-1 flex flex-col"><div class="p-4 border-b border-gray-200 dark:border-dark-border"><h3 class="font-bold text-lg">Messages</h3></div><div class="flex-1 overflow-y-auto p-2 space-y-1"><a href="#" class="message-item block p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-bg" data-chat-name="Maria Clara" data-chat-avatar="https://placehold.co/40x40/34D399/FFFFFF?text=M"><div class="flex items-center space-x-3"><img src="https://placehold.co/40x40/34D399/FFFFFF?text=M" class="w-10 h-10 rounded-full object-cover"><div class="flex-1 min-w-0"><p class="font-bold text-sm">Maria Clara</p><p class="text-sm text-gray-500 dark:text-dark-text-secondary truncate">Hey, are you going to the meetup?</p></div></div></a></div><a href="/messages.html" target="_blank" class="block text-center p-3 border-t border-gray-200 dark:border-dark-border bg-gray-50 dark:bg-dark-bg hover:bg-gray-100 dark:hover:bg-dark-border font-semibold text-sm text-brand"><span class="flex items-center justify-center">Show all messages<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></span></a></div>
+                            <div id="chat-view" class="hidden flex-1 flex-col"><div class="flex items-center p-2 border-b border-gray-200 dark:border-dark-border"><button id="chat-back-btn" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-border"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg></button><img id="chat-view-avatar" src="" class="w-8 h-8 rounded-full object-cover mx-2"><p id="chat-view-name" class="font-bold text-sm"></p></div><div class="flex-1 p-4 overflow-y-auto"><p class="text-xs text-center text-gray-400">This is the beginning of your conversation.</p></div><div class="p-2 border-t border-gray-200 dark:border-dark-border"><div class="relative"><input type="text" placeholder="Type a message..." class="w-full bg-gray-100 dark:bg-dark-bg border-none rounded-full py-2 pl-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-brand"><button class="absolute inset-y-0 right-0 px-3 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" /></svg></button></div></div></div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function setupEventListeners() {
+                const profileButton = document.getElementById('profile-button');
+                const messagesButton = document.getElementById('messages-button');
+                const notificationsButton = document.getElementById('notifications-button');
+                
+                const profileDropdown = document.getElementById('profile-dropdown');
+                const messagesPopover = document.getElementById('messages-popover');
+                const notificationsPopover = document.getElementById('notifications-popover');
+                
+                function togglePopover(popover, button) {
+                    const isHidden = popover.classList.contains('hidden');
+                    [profileDropdown, messagesPopover, notificationsPopover].forEach(p => p.classList.add('hidden'));
+                    [profileButton, messagesButton, notificationsButton].forEach(b => b.classList.remove('bg-gray-200', 'dark:bg-dark-border'));
+                    if (isHidden) {
+                        popover.classList.remove('hidden');
+                        button.classList.add('bg-gray-200', 'dark:bg-dark-border');
+                    }
+                }
+
+                if (messagesButton) messagesButton.addEventListener('click', (e) => { e.stopPropagation(); togglePopover(messagesPopover, messagesButton); });
+                if (profileButton) profileButton.addEventListener('click', (e) => { e.stopPropagation(); togglePopover(profileDropdown, profileButton); });
+                if (notificationsButton) notificationsButton.addEventListener('click', (e) => { e.stopPropagation(); togglePopover(notificationsPopover, notificationsButton); });
+
+                const messageListView = document.getElementById('message-list-view');
+                const chatView = document.getElementById('chat-view');
+                const chatBackButton = document.getElementById('chat-back-btn');
+                const messageItems = document.querySelectorAll('.message-item');
+                
+                messageItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        document.getElementById('chat-view-name').textContent = item.dataset.chatName;
+                        document.getElementById('chat-view-avatar').src = item.dataset.chatAvatar;
+                        messageListView.classList.add('hidden');
+                        chatView.classList.remove('hidden');
+                        chatView.classList.add('flex');
+                    });
+                });
+
+                if(chatBackButton) chatBackButton.addEventListener('click', () => {
+                    chatView.classList.add('hidden');
+                    chatView.classList.remove('flex');
+                    messageListView.classList.remove('hidden');
+                });
+
+                window.addEventListener('click', (event) => {
+                    const popovers = [profileDropdown, messagesPopover, notificationsPopover];
+                    const buttons = [profileButton, messagesButton, notificationsButton];
+                    for(let i = 0; i < popovers.length; i++){
+                        if (popovers[i] && buttons[i] && !buttons[i].contains(event.target) && !popovers[i].contains(event.target)) {
+                            popovers[i].classList.add('hidden');
+                            buttons[i].classList.remove('bg-gray-200', 'dark:bg-dark-border');
+                        }
+                    }
+                });
+
+                const darkModeToggle = document.getElementById('dark-mode-toggle');
+                const htmlElement = document.documentElement;
+                const applyTheme = (theme) => {
+                    htmlElement.classList.toggle('dark', theme === 'dark');
+                    if(darkModeToggle) {
+                        darkModeToggle.classList.toggle('bg-brand', theme === 'dark');
+                        darkModeToggle.firstElementChild.classList.toggle('translate-x-5', theme === 'dark');
+                    }
+                };
+                const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                applyTheme(savedTheme);
+                if(darkModeToggle) darkModeToggle.addEventListener('click', () => {
+                    const newTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+                    applyTheme(newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+
+            renderPopovers();
+            setupEventListeners();
+        });
+    </script>
+
+</body>
+</html>

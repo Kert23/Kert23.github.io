@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Forum</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        // Custom Tailwind configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-bg': '#18191A',
+                        'dark-card': '#242526',
+                        'dark-border': '#3A3B3C',
+                        'dark-text-primary': '#E4E6EB',
+                        'dark-text-secondary': '#B0B3B8',
+                        'brand': '#4A90E2',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #4A4A4A; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-dark-bg text-black dark:text-dark-text-primary font-sans transition-colors duration-300">
+
+    <div id="app" class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white dark:bg-dark-card border-b border-gray-200 dark:border-dark-border sticky top-0 z-40 px-4 lg:px-6 h-16 flex items-center">
+            <div class="flex items-center justify-between w-full">
+                <!-- Left Section: Logo and Home Button -->
+                <div class="flex items-center space-x-6">
+                  <a href="index.html" class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <span class="font-bold text-xl hidden sm:inline">Forum</span>
+                  </a>
+                   <a href="homepage.html" class="flex items-center space-x-2 text-sm font-semibold hover:text-brand transition-colors">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                        <span>Home</span>
+                   </a>
+                </div>
+
+                <!-- Right Section: Profile Dropdown -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button id="profile-button" class="flex items-center space-x-2 focus:outline-none">
+                            <img class="h-9 w-9 rounded-full object-cover" src="https://placehold.co/40x40/7F56D9/FFFFFF?text=JD" alt="User avatar">
+                            <span class="font-semibold text-sm hidden lg:inline">Juan Dela Cruz</span>
+                            <svg class="h-4 w-4 text-gray-500 dark:text-dark-text-secondary hidden lg:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Profile Dropdown -->
+                        <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-dark-card rounded-lg shadow-xl border border-gray-200 dark:border-dark-border overflow-hidden z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-dark-text-primary hover:bg-gray-100 dark:hover:bg-dark-bg">View Profile</a>
+                            <a href="#" class="block w-full text-left px-4 py-2 text-sm text-red-500 border-t border-gray-200 dark:border-dark-border hover:bg-gray-100 dark:hover:bg-dark-bg">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="container mx-auto p-4 lg:p-6">
+            <div class="grid grid-cols-12 gap-6">
+
+                <!-- Left Settings Panel -->
+                <aside class="col-span-12 lg:col-span-3">
+                    <div class="bg-white dark:bg-dark-card p-4 rounded-lg shadow">
+                         <h3 class="font-bold text-lg mb-4">Settings</h3>
+                         <ul id="settings-nav" class="space-y-1">
+                            <li><a href="#general" class="settings-link flex items-center space-x-3 p-2 rounded-md font-semibold"><span>General</span></a></li>
+                            <li><a href="#security" class="settings-link flex items-center space-x-3 p-2 rounded-md font-semibold"><span>Security</span></a></li>
+                            <li><a href="#privacy" class="settings-link flex items-center space-x-3 p-2 rounded-md font-semibold"><span>Privacy</span></a></li>
+                            <li><a href="#preferences" class="settings-link flex items-center space-x-3 p-2 rounded-md font-semibold"><span>Preferences</span></a></li>
+                            <li><a href="#notifications" class="settings-link flex items-center space-x-3 p-2 rounded-md font-semibold"><span>Notifications</span></a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Right Settings Content -->
+                <div class="col-span-12 lg:col-span-9">
+                    
+                    <!-- General Settings -->
+                    <div id="general" class="settings-panel bg-white dark:bg-dark-card p-6 rounded-lg shadow space-y-6">
+                        <h2 class="text-2xl font-bold border-b border-gray-200 dark:border-dark-border pb-4">General Settings</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="username" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Username</label>
+                                <input type="text" id="username" value="JuanDelaCruz" class="mt-1 block w-full md:w-1/2 bg-gray-100 dark:bg-dark-bg border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Email Address</label>
+                                <input type="email" id="email" value="juandelacruz@example.com" class="mt-1 block w-full md:w-1/2 bg-gray-100 dark:bg-dark-bg border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Profile Picture</label>
+                                <div class="mt-2 flex items-center space-x-4">
+                                    <img class="h-16 w-16 rounded-full object-cover" src="https://placehold.co/64x64/7F56D9/FFFFFF?text=JD" alt="User avatar">
+                                    <button class="px-3 py-1.5 text-sm font-semibold border border-gray-300 dark:border-dark-border rounded-md hover:bg-gray-50 dark:hover:bg-dark-border">Change</button>
+                                </div>
+                            </div>
+                             <div>
+                                <label for="bio" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Bio</label>
+                                <textarea id="bio" rows="3" class="mt-1 block w-full md:w-3/4 bg-gray-100 dark:bg-dark-bg border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm">Lover of code, coffee, and clean UIs.</textarea>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200 dark:border-dark-border flex justify-end">
+                            <button class="px-6 py-2 text-sm font-semibold bg-brand text-white rounded-full hover:bg-blue-600">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+<div id="security" class="settings-panel hidden bg-white dark:bg-dark-card p-6 rounded-lg shadow space-y-6">
+    <h2 class="text-2xl font-bold border-b border-gray-200 dark:border-dark-border pb-4">Security Settings</h2>
+    
+    <div class="space-y-4">
+        <!-- Change Password -->
+        <div>
+            <label for="current-password" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Current Password</label>
+            <input type="password" id="current-password" class="mt-1 block w-full md:w-1/2 bg-gray-100 dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm" placeholder="••••••••">
+        </div>
+        <div>
+            <label for="new-password" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">New Password</label>
+            <input type="password" id="new-password" class="mt-1 block w-full md:w-1/2 bg-gray-100 dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm" placeholder="••••••••">
+        </div>
+        <div>
+            <label for="confirm-password" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Confirm New Password</label>
+            <input type="password" id="confirm-password" class="mt-1 block w-full md:w-1/2 bg-gray-100 dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm" placeholder="••••••••">
+        </div>
+    </div>
+
+    <!-- 2FA Toggle -->
+    <div class="pt-4 border-t border-gray-200 dark:border-dark-border">
+        <h3 class="text-lg font-medium mb-2">Two-Factor Authentication (2FA)</h3>
+        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-dark-bg rounded-lg">
+            <p class="text-sm">Strengthen your account security with an extra layer of protection.</p>
+            <button id="toggle-2fa" class="px-4 py-1.5 text-sm font-semibold bg-gray-200 dark:bg-dark-border rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Enable 2FA</button>
+        </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="pt-4 border-t border-gray-200 dark:border-dark-border flex justify-end">
+        <button class="px-6 py-2 text-sm font-semibold bg-brand text-white rounded-full hover:bg-blue-600 transition-colors">Update Password</button>
+    </div>
+</div>
+
+
+                    <!-- Privacy Settings -->
+                    <div id="privacy" class="settings-panel hidden bg-white dark:bg-dark-card p-6 rounded-lg shadow space-y-6">
+                        <h2 class="text-2xl font-bold border-b border-gray-200 dark:border-dark-border pb-4">Privacy Settings</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="profile-visibility" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Profile Visibility</label>
+                                <select id="profile-visibility" class="mt-1 block w-full md:w-1/2 bg-gray-100 dark:bg-dark-bg border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm">
+                                    <option>Public (Everyone)</option>
+                                    <option selected>Members Only</option>
+                                    <option>Private (Only Friends)</option>
+                                </select>
+                            </div>
+                             <div>
+                                <label for="messaging" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Who can send you messages?</label>
+                                <select id="messaging" class="mt-1 block w-full md:w-1/2 bg-gray-100 dark:bg-dark-bg border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm">
+                                    <option>Anyone</option>
+                                    <option selected>Friends Only</option>
+                                    <option>No One</option>
+                                </select>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Blocked Users</h3>
+                                <p class="text-xs text-gray-500">You are not currently blocking any users.</p>
+                                <button class="mt-2 text-sm font-semibold text-brand hover:underline">Manage Blocked Users</button>
+                            </div>
+                        </div>
+                         <div class="pt-4 border-t border-gray-200 dark:border-dark-border flex justify-end">
+                            <button class="px-6 py-2 text-sm font-semibold bg-brand text-white rounded-full hover:bg-blue-600">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <!-- Preferences Settings -->
+                    <div id="preferences" class="settings-panel hidden bg-white dark:bg-dark-card p-6 rounded-lg shadow space-y-6">
+                        <h2 class="text-2xl font-bold border-b border-gray-200 dark:border-dark-border pb-4">Preferences</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-900 dark:text-dark-text-primary">Theme</h3>
+                                    <p class="text-sm text-gray-500 dark:text-dark-text-secondary">Choose between light and dark mode.</p>
+                                </div>
+                                <button id="theme-toggle-button" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand dark:focus:ring-offset-dark-card">
+                                    <span class="sr-only">Enable dark mode</span>
+                                    <span class="inline-block w-4 h-4 transform bg-white rounded-full transition-transform"></span>
+                                </button>
+                            </div>
+                             <div>
+                                <label for="language" class="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary">Content Language</label>
+                                <select id="language" class="mt-1 block w-full md:w-1/2 bg-gray-100 dark:bg-dark-bg border-gray-300 dark:border-dark-border rounded-md shadow-sm focus:ring-brand focus:border-brand sm:text-sm">
+                                    <option selected>English</option>
+                                    <option>Spanish</option>
+                                    <option>Filipino</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="pt-4 border-t border-gray-200 dark:border-dark-border flex justify-end">
+                            <button class="px-6 py-2 text-sm font-semibold bg-brand text-white rounded-full hover:bg-blue-600">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Settings -->
+                    <div id="notifications" class="settings-panel hidden bg-white dark:bg-dark-card p-6 rounded-lg shadow space-y-6">
+                        <h2 class="text-2xl font-bold border-b border-gray-200 dark:border-dark-border pb-4">Notification Settings</h2>
+                        <p class="text-sm text-gray-600 dark:text-dark-text-secondary">Select which notifications you want to receive.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between"><label for="notif-messages" class="text-sm font-medium">New Messages</label><input type="checkbox" id="notif-messages" class="rounded h-4 w-4 text-brand focus:ring-brand" checked></div>
+                            <div class="flex items-center justify-between"><label for="notif-replies" class="text-sm font-medium">Replies to your posts</label><input type="checkbox" id="notif-replies" class="rounded h-4 w-4 text-brand focus:ring-brand" checked></div>
+                            <div class="flex items-center justify-between"><label for="notif-mentions" class="text-sm font-medium">Mentions</label><input type="checkbox" id="notif-mentions" class="rounded h-4 w-4 text-brand focus:ring-brand"></div>
+                            <div class="flex items-center justify-between"><label for="notif-upvotes" class="text-sm font-medium">Upvotes on your posts</label><input type="checkbox" id="notif-upvotes" class="rounded h-4 w-4 text-brand focus:ring-brand"></div>
+                            <div class="flex items-center justify-between"><label for="notif-newsletter" class="text-sm font-medium">Forum Newsletter</label><input type="checkbox" id="notif-newsletter" class="rounded h-4 w-4 text-brand focus:ring-brand"></div>
+                        </div>
+                         <div class="pt-4 border-t border-gray-200 dark:border-dark-border flex justify-end">
+                            <button class="px-6 py-2 text-sm font-semibold bg-brand text-white rounded-full hover:bg-blue-600">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Settings Panel Navigation ---
+            const settingsLinks = document.querySelectorAll('.settings-link');
+            const settingsPanels = document.querySelectorAll('.settings-panel');
+            
+            function showPanel(hash) {
+                // Determine the target panel, default to #general
+                const targetId = hash ? hash.substring(1) : 'general';
+                const targetPanel = document.getElementById(targetId);
+
+                // Hide all panels
+                settingsPanels.forEach(panel => panel.classList.add('hidden'));
+                
+                // Show the target panel
+                if (targetPanel) {
+                    targetPanel.classList.remove('hidden');
+                } else {
+                    // Fallback to general if hash is invalid
+                    document.getElementById('general').classList.remove('hidden');
+                }
+
+                // Update active link styles
+                settingsLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        link.classList.add('bg-blue-100', 'dark:bg-brand/20', 'text-brand');
+                    } else {
+                        link.classList.remove('bg-blue-100', 'dark:bg-brand/20', 'text-brand');
+                    }
+                });
+            }
+
+            // Handle clicks on settings navigation
+            settingsLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const hash = e.currentTarget.getAttribute('href');
+                    window.location.hash = hash; // Update URL hash
+                    showPanel(hash);
+                });
+            });
+
+            // Show initial panel based on URL hash on page load
+            showPanel(window.location.hash);
+
+
+            // --- Profile Dropdown ---
+            const profileButton = document.getElementById('profile-button');
+            const profileDropdown = document.getElementById('profile-dropdown');
+            if(profileButton) {
+                profileButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    profileDropdown.classList.toggle('hidden');
+                });
+            }
+
+            // --- Dark/Light Mode Theme Toggle ---
+            const themeToggleButton = document.getElementById('theme-toggle-button');
+            const htmlElement = document.documentElement;
+
+            const applyTheme = (theme) => {
+                htmlElement.classList.toggle('dark', theme === 'dark');
+                if(themeToggleButton) {
+                    themeToggleButton.classList.toggle('bg-brand', theme === 'dark');
+                    themeToggleButton.firstElementChild.classList.toggle('translate-x-5', theme === 'dark');
+                }
+            };
+
+            // Initialize theme
+            const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(savedTheme);
+
+            // Handle theme toggle click
+            if(themeToggleButton) {
+                themeToggleButton.addEventListener('click', () => {
+                    const newTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+                    applyTheme(newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+            // --- 2FA Toggle ---
+const toggle2FAButton = document.getElementById('toggle-2fa');
+if (toggle2FAButton) {
+    toggle2FAButton.addEventListener('click', () => {
+        const enabled = toggle2FAButton.textContent.includes('Disable');
+        toggle2FAButton.textContent = enabled ? 'Enable 2FA' : 'Disable 2FA';
+        toggle2FAButton.classList.toggle('bg-gray-200', enabled);
+        toggle2FAButton.classList.toggle('bg-green-500', !enabled);
+        toggle2FAButton.classList.toggle('text-white', !enabled);
+    });
+}
+
+
+            // --- General Click-away Listener ---
+            window.addEventListener('click', (event) => {
+                if (profileDropdown && !profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+                    profileDropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
