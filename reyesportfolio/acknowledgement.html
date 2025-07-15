@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acknowledgement | Cindy D. Reyes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    :root {
+      --main: #FEC5EC;
+      --mint: #C5FEE0;
+      --sky: #C5D8FE;
+      --butter: #FFF5C5;
+      --ncca-color: #004080;
+      --text-dark: #333;
+      --radius: 20px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      overflow-x: hidden;
+      font-family: 'Quicksand', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: url('images/indexbg.jpg') center/cover no-repeat fixed;
+      background-blend-mode: overlay;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 60px 20px;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      z-index: 0;
+    }
+
+    main.ack-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1500px;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 60%, rgba(255, 255, 255, 0.98));
+      border: 3px solid var(--mint);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 60px 50px;
+      line-height: 1.85;
+      color: var(--text-dark);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    main.ack-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.3), transparent);
+      z-index: -1;
+    }
+
+    main.ack-section h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--ncca-color), var(--sky));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    main.ack-section h1::after {
+      content: "";
+      display: block;
+      margin: 12px auto 30px auto;
+      width: 80px;
+      height: 4px;
+      background: var(--mint);
+      border-radius: 4px;
+    }
+
+    main.ack-section p {
+      text-align: justify;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    main.ack-section p:first-of-type::first-letter {
+      font-size: 3rem;
+      font-weight: bold;
+      float: left;
+      line-height: 1;
+      margin-right: 10px;
+      color: var(--ncca-color);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 50px;
+      background: linear-gradient(145deg, var(--main), var(--butter));
+      padding: 14px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .back-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent);
+      transform: scale(0);
+      transition: transform 0.4s ease-out;
+      border-radius: inherit;
+    }
+
+    .back-btn:hover::before {
+      transform: scale(2);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .back-btn:active {
+      transform: translateY(0) scale(0.97);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeSlideIn {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-out {
+      opacity: 0 !important;
+      transform: translateY(50px) !important;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="ack-section">
+    <h1>Acknowledgement</h1>
+
+    <p>First and foremost, I express my deepest gratitude to the Lord for His guidance, wisdom, and strength throughout this journey. His presence has been my constant source of inspiration and resilience.</p>
+
+    <p>I extend heartfelt thanks to my family for their love and support, which has served as the foundation of my endeavors. Their assistance during my internship was invaluable, and I am profoundly grateful for their belief in me and encouragement every step of the way.</p>
+
+    <p>To our internship adviser, I am indebted for his invaluable mentorship and guidance. His care and support have been deeply appreciated, and his dedication and passion for teaching and guiding us have profoundly shaped my approach to the field of librarianship.</p>
+
+    <p>My sincere appreciation also goes to my dear college friends, who, as both my classmates and fellow pre-service librarians in the same cooperating libraries, have been my partners in all endeavors. I am grateful for their consistent assistance and support.</p>
+
+    <p>To my source of strength, I extend my heartfelt thanks for being my unwavering support system. His encouragement and belief in me have been my greatest strength. Thank you for standing by me through every challenge and triumph.</p>
+
+    <p>To my alma mater, I am grateful for providing me with a strong educational foundation and fostering a passion for being a pre-service librarian. The commitment to excellence exhibited by the institution has been instrumental in my development as a librarian.</p>
+
+    <p>Lastly, I extend my appreciation to everyone including our supervisors and librarians in NCCA, EAC, CSB, and NLP who have been part of this incredible journey. Your contributions, no matter how big or small, have been deeply valued. Thank you for your support, encouragement, and kindness throughout.</p>
+
+<a href="index.html#toc" class="back-btn">← Back to Home</a>
+  </main>
+
+  <script>
+    const backBtn = document.querySelector('.back-btn');
+    backBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('main').classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 400);
+    });
+  </script>
+
+</body>
+</html>

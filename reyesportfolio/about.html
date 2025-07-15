@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me | Cindy D. Reyes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    :root {
+      --main: #FEC5EC;
+      --mint: #C5FEE0;
+      --sky: #C5D8FE;
+      --butter: #FFF5C5;
+      --ncca-color: #004080;
+      --text-dark: #333;
+      --radius: 20px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      overflow-x: hidden;
+      font-family: 'Quicksand', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: url('images/indexbg.jpg') center/cover no-repeat fixed;
+      background-blend-mode: overlay;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 60px 20px;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      z-index: 0;
+    }
+
+    main.about-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1500px;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 60%, rgba(255, 255, 255, 0.98));
+      border: 3px solid var(--mint);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 60px 50px;
+      line-height: 1.85;
+      color: var(--text-dark);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    main.about-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.3), transparent);
+      z-index: -1;
+    }
+
+    main.about-section h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--ncca-color), var(--sky));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    main.about-section h1::after {
+      content: "";
+      display: block;
+      margin: 12px auto 30px auto;
+      width: 80px;
+      height: 4px;
+      background: var(--mint);
+      border-radius: 4px;
+    }
+
+    main.about-section p {
+      text-align: justify;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    main.about-section p:first-of-type::first-letter {
+      font-size: 3rem;
+      font-weight: bold;
+      float: left;
+      line-height: 1;
+      margin-right: 10px;
+      color: var(--ncca-color);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 50px;
+      background: linear-gradient(145deg, var(--main), var(--butter));
+      padding: 14px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .back-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent);
+      transform: scale(0);
+      transition: transform 0.4s ease-out;
+      border-radius: inherit;
+    }
+
+    .back-btn:hover::before {
+      transform: scale(2);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .back-btn:active {
+      transform: translateY(0) scale(0.97);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeSlideIn {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-out {
+      opacity: 0 !important;
+      transform: translateY(50px) !important;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="about-section">
+    <h1>About Me</h1>
+
+    <p>Hello everyone! My name is Cindy D. Reyes. I'm 22 years old and from Navotas City. I'm currently a graduating student at the Philippine Normal University (PNU) Manila. I've also just completed internships at four types of libraries: the NCCA Special Library, the Emilio Aguinaldo College Library, the De La Salle-College of Saint Benilde Academic Library, and the National Library of the Philippines.</p>
+
+    <p>With that, let me share a bit about myself. As PNUans, we often face high expectations. At first, I thought I wouldn't be able to continue my studies here because I knew my weaknesses — a lack of confidence, social anxiety, and fear of public speaking — would be very challenging at PNU. I was overwhelmed and stressed, genuinely believing I couldn't handle it. For about four years, I've strived to become a better version of myself. I've tried to keep up with my classmates and have learned to love my course, even though it wasn't my dream course.</p>
+
+    <p>I'm still searching for what I want, for the right path for me, and for where I truly belong. I still feel somewhat lost. There are times when I ask myself, "Can I do this? Will I be able to handle it, or should I just let myself go with the flow?" I feel pressured because many people know what they want in life and what they're good at. But me? I still can't figure out what I want, and I'm hoping to find my own path someday.</p>
+
+    <p>There have been many failures that made me want to quit, and perhaps there are many more I will face. Despite that, I'm here. I survived! I'm somewhat proud of myself for making it this far. A future librarian! Maybe God has a purpose for all of this, and perhaps being a librarian is my calling, not just for myself, but also for the bayan, bata, and aklatan.</p>
+
+    <p>Through this portfolio, I will demonstrate how genuinely invested I am in my internships and how much I value this experience. It will also highlight my experiences, such as the challenges I faced, the lessons I learned, and the importance of librarianship that I've come to understand during my time as an intern.</p>
+
+<a href="index.html#toc" class="back-btn">← Back to Home</a>
+  </main>
+
+  <script>
+    const backBtn = document.querySelector('.back-btn');
+    backBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('main').classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 400);
+    });
+  </script>
+
+</body>
+</html>
