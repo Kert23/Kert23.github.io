@@ -1,0 +1,190 @@
+:root {
+  --ncca-blue: #004080;
+  --ncca-gold: #F4C430;
+  --butter: #FFF5C5;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #F4F8FF 0%, #FFFFFF 100%);
+  color: #333;
+  margin: 0;
+  position: relative;
+}
+
+/* 📚 Subtle book emoji background */
+body::before {
+  content: "";
+  position: fixed;
+  font-size: 20rem;
+  opacity: 0.015;
+  right: 10%;
+  bottom: 5%;
+  transform: rotate(-20deg);
+}
+
+/* 📚 Hero with image background */
+.library-hero {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 80px 20px;
+  background:
+    linear-gradient(rgba(0, 64, 128, 0.6), rgba(0, 64, 128, 0.6)),
+    url('../images/NCCAhead.jpg') center/cover no-repeat;
+  background-blend-mode: overlay;
+  background-position: center 68%;
+  color: #fff;
+}
+
+.library-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.library-hero * {
+  position: relative;
+  z-index: 2;
+}
+
+.library-hero .library-logo {
+  width: 200px;
+  max-width: 200px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fade-in-down 1.5s ease forwards;
+}
+
+.library-hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+  line-height: 1.2;
+  opacity: 0;
+  animation: fade-in-up 2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.library-hero p {
+  font-size: 1.1rem;
+  margin: 0;
+  max-width: 90%;
+  line-height: 1.4;
+  opacity: 0;
+  animation: fade-in-up 2.5s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* 📑 Quick Links */
+.library-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.library-content h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--ncca-blue);
+}
+
+.quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.quick-card {
+  background: #fff;
+  border-left: 6px solid var(--ncca-blue);
+  padding: 25px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: reveal 0.8s ease forwards;
+}
+
+.quick-card:nth-child(1) { animation-delay: 0.1s; }
+.quick-card:nth-child(2) { animation-delay: 0.2s; }
+.quick-card:nth-child(3) { animation-delay: 0.3s; }
+.quick-card:nth-child(4) { animation-delay: 0.4s; }
+.quick-card:nth-child(5) { animation-delay: 0.5s; }
+.quick-card:nth-child(6) { animation-delay: 0.6s; }
+
+.quick-card:hover {
+  background: linear-gradient(145deg, var(--ncca-gold), var(--butter));
+  transform: translateY(-8px) scale(1.03) rotate(-1deg);
+  box-shadow: var(--shadow-hover);
+  color: #333;
+}
+
+.quick-card h3 {
+  margin-bottom: 8px;
+}
+
+footer {
+  text-align: center;
+  background: var(--ncca-blue);
+  color: #fff;
+  padding: 30px 20px;
+  margin-top: 60px;
+}
+
+/* ✅ NEW separate fade-in directions */
+@keyframes fade-in-down {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.home-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--ncca-gold);
+  color: #333;
+  font-size: 1.8rem;
+  padding: 15px 18px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.3s ease, background 0.3s ease;
+  z-index: 999;
+  animation: pulse 2.5s infinite;
+}
+
+.home-button:hover {
+  background: var(--ncca-blue);
+  color: #fff;
+  transform: translateY(-5px) scale(1.1) rotate(-10deg);
+  box-shadow: var(--shadow-hover);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(244, 196, 48, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(244, 196, 48, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 196, 48, 0); }
+}
